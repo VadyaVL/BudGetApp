@@ -1,4 +1,6 @@
-﻿using BudGet.ViewModels;
+﻿using BudGet.Logic.Services;
+using BudGet.ViewModels;
+using MvvmCross.Platform;
 using System;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
@@ -9,7 +11,9 @@ namespace BudGet.Pages
 	public partial class MainPage : MasterDetailPage, INotifyPropertyChanged
     {
         #region Properties
-
+        
+        private IAccountService AccountService { get; set; }
+        
         private ObservableCollection<MenuVm> collectionMenu = new ObservableCollection<MenuVm>();
 
         public ObservableCollection<MenuVm> CollectionMenu { get => this.collectionMenu; }
@@ -32,6 +36,8 @@ namespace BudGet.Pages
 		{
 			InitializeComponent();
 
+            this.AccountService = Mvx.Resolve<IAccountService>();
+
             this.CreateHamburgerMenu();
         }
 
@@ -40,8 +46,10 @@ namespace BudGet.Pages
         private void CreateHamburgerMenu()
         {
             var pageWelcome = new MenuVm() { Title = "Welcome", Icon = ImageSource.FromResource("BudGet.Images.Menu.Welcome.png"), TargetType = typeof(WelcomePage) };
+            var optionExit = new MenuVm() { Title = "Exit", Icon = ImageSource.FromResource("BudGet.Images.Menu.Logout.png"), TargetType = null };
 
             this.CollectionMenu.Add(pageWelcome);
+            this.CollectionMenu.Add(optionExit);
 
             this.Selected = pageWelcome;
 
@@ -52,7 +60,7 @@ namespace BudGet.Pages
 
         #region Events
 
-        private void OnMenuItemSelected(object sender, SelectedItemChangedEventArgs e)
+        private async void OnMenuItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
             if (e.SelectedItem == null)
             {
@@ -61,7 +69,18 @@ namespace BudGet.Pages
 
             if(sender is ListView listView && e.SelectedItem is MenuVm menu)
             {
-                if(menu.TargetType != null)
+                if(menu.TargetType == null)
+                {
+                    // Show exit dialog
+                    var isExit = await DisplayAlert(Resource.TitleExit, Resource.TextExitQuestion, Resource.TextYes, Resource.TextNo);
+
+                    if (isExit)
+                    {
+                        this.AccountService.IsAuthenticated = false;
+                        App.Current.MainPage = new LoginPage();
+                    }
+                }
+                else
                 {
                     this.Detail = new NavigationPage((Page)Activator.CreateInstance(menu.TargetType));
                     this.IsPresented = false;

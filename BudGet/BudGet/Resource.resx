@@ -117,7 +117,19 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="TextExitQuestion" xml:space="preserve">
+    <value>Do you really want to exit?</value>
+  </data>
   <data name="TextHelloWorld" xml:space="preserve">
     <value>Hello World!</value>
+  </data>
+  <data name="TextNo" xml:space="preserve">
+    <value>No</value>
+  </data>
+  <data name="TextYes" xml:space="preserve">
+    <value>Yes</value>
+  </data>
+  <data name="TitleExit" xml:space="preserve">
+    <value>Exit</value>
   </data>
 </root>

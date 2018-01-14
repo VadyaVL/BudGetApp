@@ -61,11 +61,47 @@ namespace BudGet {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Do you really want to exit?.
+        /// </summary>
+        internal static string TextExitQuestion {
+            get {
+                return ResourceManager.GetString("TextExitQuestion", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Hello World!.
         /// </summary>
         internal static string TextHelloWorld {
             get {
                 return ResourceManager.GetString("TextHelloWorld", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to No.
+        /// </summary>
+        internal static string TextNo {
+            get {
+                return ResourceManager.GetString("TextNo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Yes.
+        /// </summary>
+        internal static string TextYes {
+            get {
+                return ResourceManager.GetString("TextYes", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Exit.
+        /// </summary>
+        internal static string TitleExit {
+            get {
+                return ResourceManager.GetString("TitleExit", resourceCulture);
             }
         }
     }

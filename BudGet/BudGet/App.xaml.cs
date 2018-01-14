@@ -1,20 +1,41 @@
 ﻿using BudGet.Logic;
+using BudGet.Logic.Services;
 using BudGet.Pages;
+using MvvmCross.Platform;
 using MvvmCross.Platform.IoC;
 using Xamarin.Forms;
 
 namespace BudGet
 {
 	public partial class App : Application
-	{
-		public App ()
+    {
+        #region Properties
+
+        private IAccountService AccountService { get; set; }
+
+        #endregion
+
+        #region Constructors
+
+        public App ()
 		{
 			InitializeComponent();
             this.Initialize();
 
-            this.MainPage = new MainPage();
-            // Use NavigationPage while StartPage
+            this.AccountService = Mvx.Resolve<IAccountService>();
+
+            if (this.AccountService.IsAuthenticated)
+            {
+                this.MainPage = new MainPage();
+            }
+            else
+            {
+                // Use NavigationPage while LoginPage
+                this.MainPage = new LoginPage();
+            }
         }
+
+        #endregion
 
         #region Lifecycle methods
 

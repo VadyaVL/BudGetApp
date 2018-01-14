@@ -5,6 +5,12 @@
 	<Application.Resources>
 
 		<!-- Application resource dictionary -->
+        <ResourceDictionary>
+            <!-- Styles of pages -->
+            <Style x:Key="loginPage" TargetType="ContentPage">
+                <Setter Property="BackgroundColor" Value="#3CC8C8" />
+            </Style>
+        </ResourceDictionary>
 
-	</Application.Resources>
+    </Application.Resources>
 </Application>
