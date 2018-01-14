@@ -5,12 +5,16 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Images\Menu\Developer.png" />
     <None Remove="Images\Menu\Logout.png" />
+    <None Remove="Images\Menu\Setting.png" />
     <None Remove="Images\Menu\Welcome.png" />
   </ItemGroup>
 
   <ItemGroup>
+    <EmbeddedResource Include="Images\Menu\Developer.png" />
     <EmbeddedResource Include="Images\Menu\Logout.png" />
+    <EmbeddedResource Include="Images\Menu\Setting.png" />
     <EmbeddedResource Include="Images\Menu\Welcome.png" />
   </ItemGroup>
 
@@ -39,7 +43,13 @@
   </ItemGroup>
 
   <ItemGroup>
+    <EmbeddedResource Update="Pages\Developer\DeveloperPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
     <EmbeddedResource Update="Pages\Entry\LoginPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\Setting\SettingPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Pages\WelcomePage.xaml">

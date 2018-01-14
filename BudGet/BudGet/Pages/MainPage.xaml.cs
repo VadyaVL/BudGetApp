@@ -46,9 +46,13 @@ namespace BudGet.Pages
         private void CreateHamburgerMenu()
         {
             var pageWelcome = new MenuVm() { Title = "Welcome", Icon = ImageSource.FromResource("BudGet.Images.Menu.Welcome.png"), TargetType = typeof(WelcomePage) };
+            var pageSetting = new MenuVm() { Title = "Setting", Icon = ImageSource.FromResource("BudGet.Images.Menu.Setting.png"), TargetType = typeof(SettingPage) };
+            var pageDeveloper = new MenuVm() { Title = "Developer", Icon = ImageSource.FromResource("BudGet.Images.Menu.Developer.png"), TargetType = typeof(DeveloperPage) };
             var optionExit = new MenuVm() { Title = "Exit", Icon = ImageSource.FromResource("BudGet.Images.Menu.Logout.png"), TargetType = null };
 
             this.CollectionMenu.Add(pageWelcome);
+            this.CollectionMenu.Add(pageSetting);
+            this.CollectionMenu.Add(pageDeveloper);
             this.CollectionMenu.Add(optionExit);
 
             this.Selected = pageWelcome;
