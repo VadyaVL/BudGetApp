@@ -52,7 +52,7 @@
     <EmbeddedResource Update="Pages\Setting\SettingPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Pages\WelcomePage.xaml">
+    <EmbeddedResource Update="Pages\Welcome\WelcomePage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Resource.resx">
