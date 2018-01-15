@@ -10,6 +10,13 @@
             <Style x:Key="loginPage" TargetType="ContentPage">
                 <Setter Property="BackgroundColor" Value="#3CC8C8" />
             </Style>
+
+            <!-- Styles of entries -->
+            <Style x:Key="loginEntry" TargetType="Entry">
+                <Setter Property="TextColor" Value="#FFFFFF" />
+                <Setter Property="PlaceholderColor" Value="#FFFFFF" />
+            </Style>
+
         </ResourceDictionary>
 
     </Application.Resources>

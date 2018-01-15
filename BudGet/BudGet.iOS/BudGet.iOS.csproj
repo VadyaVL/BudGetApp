@@ -122,6 +122,15 @@
     <PackageReference Include="MvvmCross">
       <Version>5.6.3</Version>
     </PackageReference>
+    <PackageReference Include="SkiaSharp">
+      <Version>1.59.3</Version>
+    </PackageReference>
+    <PackageReference Include="SkiaSharp.Views">
+      <Version>1.59.3</Version>
+    </PackageReference>
+    <PackageReference Include="SkiaSharp.Views.Forms">
+      <Version>1.59.3</Version>
+    </PackageReference>
     <PackageReference Include="Xam.Plugins.Settings">
       <Version>3.1.1</Version>
     </PackageReference>
@@ -133,5 +142,8 @@
       <Project>{4297C1CC-493D-4528-8701-96743F35B814}</Project>
       <Name>BudGet</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Renderer\" />
   </ItemGroup>
 </Project>

@@ -5,6 +5,8 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Images\Icon.png" />
+    <None Remove="Images\Icon_white.png" />
     <None Remove="Images\Menu\Developer.png" />
     <None Remove="Images\Menu\Logout.png" />
     <None Remove="Images\Menu\Setting.png" />
@@ -12,6 +14,8 @@
   </ItemGroup>
 
   <ItemGroup>
+    <EmbeddedResource Include="Images\Icon.png" />
+    <EmbeddedResource Include="Images\Icon_white.png" />
     <EmbeddedResource Include="Images\Menu\Developer.png" />
     <EmbeddedResource Include="Images\Menu\Logout.png" />
     <EmbeddedResource Include="Images\Menu\Setting.png" />
@@ -21,6 +25,9 @@
   <ItemGroup>
     <PackageReference Include="MvvmCross" Version="5.6.3" />
     <PackageReference Include="Newtonsoft.Json" Version="10.0.3" />
+    <PackageReference Include="SkiaSharp" Version="1.59.3" />
+    <PackageReference Include="SkiaSharp.Views" Version="1.59.3" />
+    <PackageReference Include="SkiaSharp.Views.Forms" Version="1.59.3" />
     <PackageReference Include="Xamarin.Forms" Version="2.5.0.121934" />
   </ItemGroup>
 
