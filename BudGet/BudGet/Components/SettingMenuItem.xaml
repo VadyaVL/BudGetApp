@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<StackLayout xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="BudGet.Components.SettingMenuItem"
+             Orientation="Horizontal" HorizontalOptions="FillAndExpand"
+             Padding="30,10">
+
+    <StackLayout Padding="0,0,30,0" VerticalOptions="CenterAndExpand">
+        <Image Source="{Binding Icon}"
+               VerticalOptions="CenterAndExpand"
+               WidthRequest="{Binding Source={x:Reference lableTitle}, Path=FontSize, Converter={StaticResource fontSizeConverter}}" 
+               HeightRequest="{Binding Source={x:Reference lableTitle}, Path=FontSize, Converter={StaticResource fontSizeConverter}}" />
+    </StackLayout>
+
+    <Label x:Name="lableTitle"  Text="{Binding Title}"      FontSize="Medium"   TextColor="#593E67" HorizontalOptions="FillAndExpand"   VerticalTextAlignment="Center"/>
+    <Label                      Text="{Binding Value}"      FontSize="Default"  TextColor="#593E67" HorizontalOptions="EndAndExpand"    VerticalTextAlignment="Center"/>
+    <Label                      Text=">"  FontSize="Large"                      TextColor="#593E67" HorizontalOptions="End"             VerticalTextAlignment="Center"/>
+
+</StackLayout>
