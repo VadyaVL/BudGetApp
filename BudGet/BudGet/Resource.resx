@@ -117,6 +117,15 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="TextChangePassword" xml:space="preserve">
+    <value>Change password</value>
+  </data>
+  <data name="TextChangePasswordError" xml:space="preserve">
+    <value>Please, enter correct current password or check confirm.</value>
+  </data>
+  <data name="TextChangePasswordSuccessfull" xml:space="preserve">
+    <value>Pasword has been changed.</value>
+  </data>
   <data name="TextExitQuestion" xml:space="preserve">
     <value>Do you really want to exit?</value>
   </data>
@@ -128,6 +137,9 @@
   </data>
   <data name="TextNo" xml:space="preserve">
     <value>No</value>
+  </data>
+  <data name="TextSave" xml:space="preserve">
+    <value>Save</value>
   </data>
   <data name="TextYes" xml:space="preserve">
     <value>Yes</value>

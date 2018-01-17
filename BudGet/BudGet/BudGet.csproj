@@ -7,6 +7,7 @@
   <ItemGroup>
     <None Remove="Images\Icon.png" />
     <None Remove="Images\Icon_white.png" />
+    <None Remove="Images\Lock.png" />
     <None Remove="Images\Menu\Developer.png" />
     <None Remove="Images\Menu\Logout.png" />
     <None Remove="Images\Menu\Setting.png" />
@@ -16,6 +17,7 @@
   <ItemGroup>
     <EmbeddedResource Include="Images\Icon.png" />
     <EmbeddedResource Include="Images\Icon_white.png" />
+    <EmbeddedResource Include="Images\Lock.png" />
     <EmbeddedResource Include="Images\Menu\Developer.png" />
     <EmbeddedResource Include="Images\Menu\Logout.png" />
     <EmbeddedResource Include="Images\Menu\Setting.png" />
@@ -51,6 +53,9 @@
 
   <ItemGroup>
     <EmbeddedResource Update="Components\SettingMenuItem.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\Setting\ChangePasswordPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Pages\Developer\DeveloperPage.xaml">

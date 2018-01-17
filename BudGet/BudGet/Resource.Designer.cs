@@ -61,6 +61,33 @@ namespace BudGet {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Change password.
+        /// </summary>
+        internal static string TextChangePassword {
+            get {
+                return ResourceManager.GetString("TextChangePassword", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Please, enter correct current password or check confirm..
+        /// </summary>
+        internal static string TextChangePasswordError {
+            get {
+                return ResourceManager.GetString("TextChangePasswordError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Pasword has been changed..
+        /// </summary>
+        internal static string TextChangePasswordSuccessfull {
+            get {
+                return ResourceManager.GetString("TextChangePasswordSuccessfull", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Do you really want to exit?.
         /// </summary>
         internal static string TextExitQuestion {
@@ -93,6 +120,15 @@ namespace BudGet {
         internal static string TextNo {
             get {
                 return ResourceManager.GetString("TextNo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Save.
+        /// </summary>
+        internal static string TextSave {
+            get {
+                return ResourceManager.GetString("TextSave", resourceCulture);
             }
         }
         
