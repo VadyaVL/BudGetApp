@@ -79,6 +79,15 @@ namespace BudGet {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Password is invalid.
+        /// </summary>
+        internal static string TextInvalidPassword {
+            get {
+                return ResourceManager.GetString("TextInvalidPassword", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to No.
         /// </summary>
         internal static string TextNo {

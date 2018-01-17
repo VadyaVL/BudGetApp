@@ -13,6 +13,12 @@ namespace BudGet.Logic.Services
             set => AppSettings.AddOrUpdateValue(nameof(this.IsAuthenticated), value);
         }
 
+        public string Password
+        {
+            get => AppSettings.GetValueOrDefault(nameof(this.Password), string.Empty);
+            set => AppSettings.AddOrUpdateValue(nameof(this.Password), value);
+        }
+
         public void ClearData()
         {
             AppSettings.Remove(nameof(this.IsAuthenticated));

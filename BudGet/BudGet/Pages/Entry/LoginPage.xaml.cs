@@ -1,4 +1,6 @@
 ﻿using BudGet.Logic.Services;
+using BudGet.Utils;
+using BudGet.ViewModels;
 using MvvmCross.Platform;
 using SkiaSharp;
 using SkiaSharp.Views.Forms;
@@ -15,6 +17,8 @@ namespace BudGet.Pages
 
         private IAccountService AccountService { get; set; }
 
+        private LoginVm login;
+
         #endregion
 
         #region Constructors
@@ -24,6 +28,10 @@ namespace BudGet.Pages
 			InitializeComponent ();
 
             this.AccountService = Mvx.Resolve<IAccountService>();
+
+            this.login = new LoginVm();
+
+            this.BindingContext = this.login;
         }
 
         #endregion
@@ -34,8 +42,14 @@ namespace BudGet.Pages
         {
             this.AccountService.IsAuthenticated = true;
 
-            // Switch to MainPage
-            App.Current.MainPage = new MainPage();
+            if (this.login.Password.Equals(this.AccountService.Password))
+            {
+                App.Current.MainPage = new MainPage();
+            }
+            else
+            {
+                Displayer.Instance.ShowError(Resource.TextInvalidPassword);
+            }
         }
 
         private void OnPainting(object sender, SKPaintSurfaceEventArgs e)

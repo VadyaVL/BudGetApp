@@ -4,6 +4,8 @@
     {
         bool IsAuthenticated { get; set; }
 
+        string Password { get; set; }
+
         void ClearData();
     }
 }
