@@ -6,6 +6,19 @@
 
 		<!-- Application resource dictionary -->
         <ResourceDictionary>
+
+            <Style TargetType="ContentPage" ApplyToDerivedTypes="True">
+                <Setter Property="BackgroundColor" Value="#96E6FA" />
+            </Style>
+
+            <Style TargetType="Button" ApplyToDerivedTypes="True">
+                <Setter Property="BackgroundColor" Value="White" />
+                <Setter Property="TextColor" Value="#006FF6" />
+                <Setter Property="FontSize" Value="Medium" />
+                <Setter Property="BorderRadius" Value="20" />
+            </Style>
+
+
             <!-- Styles of pages -->
             <Style x:Key="loginPage" TargetType="ContentPage">
                 <Setter Property="BackgroundColor" Value="#3CC8C8" />

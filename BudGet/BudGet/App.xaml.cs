@@ -1,70 +1,42 @@
-﻿using BudGet.Logic;
-using BudGet.Logic.Services;
-using BudGet.Pages;
-using MvvmCross.Platform;
-using MvvmCross.Platform.IoC;
+﻿using BudGet.ViewModels;
+using FreshMvvm;
 using Xamarin.Forms;
 
 namespace BudGet
 {
 	public partial class App : Application
     {
-        #region Properties
-
-        private IAccountService AccountService { get; set; }
-
-        #endregion
-
-        #region Constructors
-
         public App ()
 		{
 			InitializeComponent();
-            this.Initialize();
 
-            this.AccountService = Mvx.Resolve<IAccountService>();
+            AppSetup.Instance.Initializate();
 
-            if (this.AccountService.IsAuthenticated)
-            {
-                this.MainPage = new MainPage();
-            }
-            else
-            {
-                // Use NavigationPage while LoginPage
-                this.MainPage = new LoginPage();
-            }
+            var page = FreshPageModelResolver.ResolvePageModel<MainViewModel>();
+            // MainPage would be set inside
         }
-
-        #endregion
-
-        #region Lifecycle methods
-
-        protected override void OnStart ()
-		{
-			// Handle when your app starts
-		}
-
-		protected override void OnSleep ()
-		{
-			// Handle when your app sleeps
-		}
-
-		protected override void OnResume ()
-		{
-			// Handle when your app resumes
-		}
-
-        #endregion
-
-        #region Methods
-
-        public void Initialize()
+        
+        public void OpenUser()
         {
-            // Init MvvmCross
-            MvxSimpleIoCContainer.Initialize();
-            MvvmConfiguration.Initialize();
-        }
+            //var masterDetailsMultiple = new MasterDetailPage(); //generic master detail page
 
-        #endregion
+            ////we setup the first navigation container with ContactList
+            //var menuListPage = FreshPageModelResolver.ResolvePageModel<MasterViewModel>();
+            //menuListPage.Title = Resource.TextMenu;
+            ////we setup the first navigation container with name MasterPageArea
+            ////var masterPageArea = new FreshNavigationContainer(menuListPage, "MasterPageArea");
+            ////masterPageArea.Title = Resource.TextMenu;
+            ////masterDetailsMultiple.Master = masterPageArea; //set the first navigation container to the Master
+            //masterDetailsMultiple.Master = menuListPage; //set the first navigation container to the Master
+
+
+            ////we setup the second navigation container with the QuoteList 
+            //var initPage = FreshPageModelResolver.ResolvePageModel<FindWordViewModel>(); // see MasterViewModel
+            //                                                                             //we setup the second navigation container with name DetailPageArea
+            //var detailPageArea = new FreshNavigationContainer(initPage, "DetailPageArea");
+            //masterDetailsMultiple.Detail = detailPageArea; //set the second navigation container to the Detail
+
+            //App.Current.MainPage = masterDetailsMultiple;
+        }
     }
 }

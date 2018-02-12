@@ -3,15 +3,14 @@ using Xamarin.Forms;
 
 namespace BudGet.ViewModels
 {
-    /*
-     * Menu item for left side menu.
-     */
-    public class MenuVm
+    public class MenuViewModel
     {
         public string Title { get; set; }
 
         public ImageSource Icon { get; set; }
 
         public Type TargetType { get; set; }
+
+        public bool IsSelected { get; set; }
     }
 }

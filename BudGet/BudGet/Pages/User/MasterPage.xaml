@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage    xmlns="http://xamarin.com/schemas/2014/forms"
+                xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                x:Class="BudGet.Pages.MasterPage"
+                x:Name="root"
+                Title="Menu" 
+                BackgroundColor="#f7f5f5"
+                
+                xmlns:behaviorsPack="clr-namespace:Xamarin.Forms.BehaviorsPack;assembly=Xamarin.Forms.BehaviorsPack">
+    
+    <StackLayout Orientation="Vertical">
+        <StackLayout    BackgroundColor="#2E8B57"
+                        HeightRequest="75">
+            <Label  Text="[HEADER]"
+                    FontSize="20"
+                    VerticalOptions="CenterAndExpand"
+                    TextColor="White"
+                    Margin="20,0,0,0"/>
+        </StackLayout>
+
+        <ListView   HasUnevenRows="True"
+                    SeparatorVisibility="Default"
+                    BackgroundColor="#f7f5f5"
+                    ItemsSource="{Binding CollectionMenu}"
+                    SelectedItem="{Binding Selected}">
+            <ListView.Behaviors>
+                <behaviorsPack:EventToCommandBehavior   EventName="ItemTapped" Command="{Binding ItemTapCommand}"/>
+            </ListView.Behaviors>
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <!-- Main design for our menu items -->
+                        <StackLayout VerticalOptions="FillAndExpand"
+                                        Orientation="Horizontal"
+                                        Padding="20,10,0,10"
+                                        Spacing="20">
+                            <Image  Source="{Binding Icon}"
+                                    WidthRequest="40"
+                                    HeightRequest="40"
+                                    VerticalOptions="Center" />
+
+                            <Label  Text="{Binding Title}"
+                                    FontSize="Medium"
+                                    VerticalOptions="Center"
+                                    TextColor="Black"/>
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </StackLayout>
+
+</ContentPage>

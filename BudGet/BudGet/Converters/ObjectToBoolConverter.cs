@@ -2,7 +2,7 @@
 using System.Globalization;
 using Xamarin.Forms;
 
-namespace BudGet.Extensions
+namespace BudGet.Converters
 {
     /// <summary>
     /// Converting an object to a boolean value.

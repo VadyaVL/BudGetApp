@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="BudGet.Pages.LoginPage"
-             Style="{StaticResource loginPage}"
+             x:Class="BudGet.Pages.SignInPage"
+             Title="Sign In"
              
              xmlns:skiaSharp="clr-namespace:SkiaSharp.Views.Forms;assembly=SkiaSharp.Views.Forms"
              xmlns:extension="clr-namespace:BudGet.Extensions"
@@ -22,7 +22,7 @@
                     <RowDefinition Height="*" />
                 </Grid.RowDefinitions>
 
-                <Image Grid.Row="0"
+                <Image  Grid.Row="0"
                         Source="{extension:ImageResource BudGet.Images.Icon_white.png}"
                         WidthRequest="128"
                         HeightRequest="128"
@@ -34,11 +34,7 @@
                            Text="{Binding Password}"
                            IsPassword="True"
                            Style="{StaticResource loginEntry}" />
-                    <custom:CustomButton Text="Login"
-                                         Clicked="OnLogin"
-                                         BackgroundColor="White"
-                                         TextColor="#006FF6"
-                                         BorderRadius="20"/>
+                    <custom:CustomButton Text="Login" Command="{Binding SignInCommand}"/>
                 </StackLayout>
             </Grid>
         </AbsoluteLayout>

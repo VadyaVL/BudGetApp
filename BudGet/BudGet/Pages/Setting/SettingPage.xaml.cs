@@ -11,9 +11,9 @@ namespace BudGet.Pages
 	{
         #region Props
 
-        private ObservableCollection<SettingVm> collection = new ObservableCollection<SettingVm>();
+        private ObservableCollection<MenuViewModel> collection = new ObservableCollection<MenuViewModel>();
 
-        public ObservableCollection<SettingVm> Collection { get => this.collection; }
+        public ObservableCollection<MenuViewModel> Collection { get => this.collection; }
 
         #endregion
 
@@ -24,7 +24,7 @@ namespace BudGet.Pages
 			InitializeComponent ();
 
             this.Collection.Add(
-                new SettingVm
+                new MenuViewModel
                 {
                     Icon = ImageSource.FromResource("BudGet.Images.Lock.png"),
                     Title = Resource.TextChangePassword,
@@ -38,7 +38,7 @@ namespace BudGet.Pages
 
         private async void OnItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
-            if (sender is ListView listView && e.SelectedItem is SettingVm item && item != null)
+            if (sender is ListView listView && e.SelectedItem is MenuViewModel item && item != null)
             {
                 listView.SelectedItem = null;
                 await Navigation.PushAsync(Activator.CreateInstance(item.TargetType) as Page);
