@@ -1,6 +1,6 @@
 ﻿using BudGet.Logic.Services;
 using BudGet.Utils;
-using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 using System.Windows.Input;
 using Xamarin.Forms;
 
@@ -38,24 +38,21 @@ namespace BudGet.ViewModels
             }
         }
 
+        [Required]
+        [RegularExpression(@"\w{4,}", ErrorMessage = "Password: more than 3 letters/numbers required")]
         public string NewPassword
         {
             get => this._newPassword;
-            set
-            {
-                this._newPassword = value;
-                this.RaisePropertyChanged();
-            }
+            set => this.SetProperty(ref this._newPassword, value);
         }
 
+        [Required]
+        [RegularExpression(@"\w{4,}", ErrorMessage = "Password: more than 3 letters/numbers required")]
+        [Compare(nameof(NewPassword), ErrorMessage = "Passwords don't match.")]
         public string ConfirmPassword
         {
             get => this._confirmPassword;
-            set
-            {
-                this._confirmPassword = value;
-                this.RaisePropertyChanged();
-            }
+            set => this.SetProperty(ref this._confirmPassword, value);
         }
 
         #endregion
@@ -80,31 +77,19 @@ namespace BudGet.ViewModels
         #endregion
 
         #region Methods
-
-        public bool Validate()
-        {
-            // We don't check CurrentPassword, because it may be empty.
-            // Check it in page class.
-            return !string.IsNullOrWhiteSpace(this.NewPassword) &&
-                   !string.IsNullOrWhiteSpace(this.ConfirmPassword) &&
-                   //this.NewPassword.Equals(this.ConfirmPassword);
-                    this.NewPassword.Length == this.ConfirmPassword.Length;
-        }
-
-        public void Clear()
-        {
-            this.CurrentPassword = string.Empty;
-            this.NewPassword = string.Empty;
-            this.ConfirmPassword = string.Empty;
-        }
-
+        
         private void OnSave()
         {
-            if (this.CurrentPassword.Equals(this.AccountService.Password) &&
-                this.NewPassword.Equals(this.ConfirmPassword))
+            if (this.Validate() && this.AccountService.Password.Equals(this.CurrentPassword))
             {
                 this.AccountService.Password = this.NewPassword;
-                this.Clear();
+
+                this.CurrentPassword = string.Empty;
+                this.NewPassword = string.Empty;
+                this.ConfirmPassword = string.Empty;
+
+                this.IsCurrentPasswordSet = true;
+
                 Displayer.Instance.ShowSuccessfull(Resource.TextChangePasswordSuccessfull);
             }
             else

@@ -6,19 +6,23 @@ namespace BudGet.CustomControls
 {
     public class DynamicToolbarItem : ToolbarItem, INotifyPropertyChanged
     {
+        public static readonly BindableProperty IsEnableProperty = BindableProperty.Create(nameof(IsEnable), typeof(bool), typeof(DynamicToolbarItem), true, BindingMode.TwoWay,
+            propertyChanged: (bind, oldVal, newVal) =>
+            {
+                if(bind is DynamicToolbarItem self)
+                {
+                    self.OnPropertyChanged(nameof(IsEnable));
+                }
+            });
+
         private FileImageSource tmpIcon;
 
         public FileImageSource IconTransparent { get; set; }
-
-        private bool isEnable = true;
+        
         public bool IsEnable
         {
-            get => this.isEnable;
-            set
-            {
-                this.isEnable = value;
-                this.OnPropertyChanged(nameof(this.IsEnable));
-            }
+            get => (bool)this.GetValue(IsEnableProperty);
+            set => this.SetValue(IsEnableProperty, value);
         }
 
         public DynamicToolbarItem() : base()

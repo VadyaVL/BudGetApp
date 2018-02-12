@@ -28,9 +28,12 @@
     <PackageReference Include="FreshMvvm" Version="2.2.4" />
     <PackageReference Include="Newtonsoft.Json" Version="10.0.3" />
     <PackageReference Include="SkiaSharp" Version="1.59.3" />
-    <PackageReference Include="SkiaSharp.Views" Version="1.59.3" />
+    <PackageReference Include="SkiaSharp.Views" Version="1.59.3">
+      <NoWarn>NU1701</NoWarn>
+    </PackageReference>
     <PackageReference Include="SkiaSharp.Views.Forms" Version="1.59.3" />
-    <PackageReference Include="Xamarin.Forms" Version="2.5.0.121934" />
+    <PackageReference Include="System.ComponentModel.Annotations" Version="4.4.1" />
+    <PackageReference Include="Xamarin.Forms" Version="2.5.0.122203" />
     <PackageReference Include="Xamarin.Forms.BehaviorsPack" Version="1.3.1" />
   </ItemGroup>
 
@@ -55,12 +58,16 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\BudGet.Core\BudGet.Core.csproj" />
     <ProjectReference Include="..\BudGet.Logic\BudGet.Logic.csproj" />
   </ItemGroup>
 
   <ItemGroup>
     <EmbeddedResource Update="Components\SettingMenuItem.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Components\ValidatedEntry.xaml">
+      <Generator>MSBuild:Compile</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Pages\Setting\ChangePasswordPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
