@@ -11,7 +11,7 @@ namespace BudGet.Dal
 
         protected IGenericRepository(string filename)
         {
-            string databasePath = DependencyService.Get<ISQLite>().GetDatabasePath(filename);
+            var databasePath = DependencyService.Get<ISQLite>().GetDatabasePath(filename);
             this.database = new SQLiteConnection(databasePath);
             this.database.CreateTable<T>();
         }

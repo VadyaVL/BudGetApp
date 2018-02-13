@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace BudGet.Model.Models
 {
-    [Table("Friends")]
+    [Table("Category")]
     public class Category
     {
         [PrimaryKey, AutoIncrement, Column("_id")]
@@ -17,10 +17,10 @@ namespace BudGet.Model.Models
 
         public byte Coefficient { get; set; }
 
-        public Category ParentCategory { get; set; }
+        //public Category ParentCategory { get; set; }
 
-        public ICollection<Category> ChildCategories { get; set; }
+        //public ICollection<Category> ChildCategories { get; set; }
 
-        public ICollection<Note> Notes { get; set; }
+        //public ICollection<Note> Notes { get; set; }
     }
 }

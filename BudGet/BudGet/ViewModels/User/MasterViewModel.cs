@@ -74,10 +74,12 @@ namespace BudGet.ViewModels
 
         private void CreateHamburgerMenu()
         {
+            var pageCategory = new MenuViewModel() { Title = "Categories", Icon = ImageSource.FromResource("BudGet.Images.Menu.Categories.png"), TargetType = typeof(CategoryListViewModel) };
             var pageSetting = new MenuViewModel() { Title = "Setting", Icon = ImageSource.FromResource("BudGet.Images.Menu.Setting.png"), TargetType = typeof(SettingViewModel) };
             var pageDeveloper = new MenuViewModel() { Title = "Developer", Icon = ImageSource.FromResource("BudGet.Images.Menu.Developer.png"), TargetType = typeof(DeveloperViewModel) };
             var optionExit = new MenuViewModel() { Title = "Exit", Icon = ImageSource.FromResource("BudGet.Images.Menu.Logout.png"), TargetType = typeof(SignInViewModel) };
 
+            this.CollectionMenu.Add(pageCategory);
             this.CollectionMenu.Add(pageSetting);
             this.CollectionMenu.Add(pageDeveloper);
             this.CollectionMenu.Add(optionExit);

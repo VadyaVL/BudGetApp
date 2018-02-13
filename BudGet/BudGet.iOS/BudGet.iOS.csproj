@@ -121,6 +121,9 @@
     <Reference Include="Xamarin.iOS" />
   </ItemGroup>
   <ItemGroup>
+    <PackageReference Include="AutoMapper">
+      <Version>6.2.2</Version>
+    </PackageReference>
     <PackageReference Include="BTProgressHUD">
       <Version>1.2.0.6</Version>
     </PackageReference>

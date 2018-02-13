@@ -16,6 +16,6 @@ namespace BudGet.Model.Models
 
         public DateTime DateTime { get; set; }
         
-        public Category Category { get; set; }
+        //public Category Category { get; set; }
     }
 }

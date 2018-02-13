@@ -1,4 +1,5 @@
-﻿using BudGet.Logic;
+﻿using AutoMapper;
+using BudGet.Logic;
 using FreshMvvm;
 using FreshTinyIoC;
 
@@ -21,7 +22,7 @@ namespace BudGet
             }
         }
 
-        private bool _isIoCInit, _isPageModelMapperInit;
+        private bool _isIoCInit, _isPageModelMapperInit, _isMapperInit;
 
         private AppSetup()
         {
@@ -43,6 +44,17 @@ namespace BudGet
                 FreshPageModelResolver.PageModelMapper = new NavigationMapper();
 
                 this._isPageModelMapperInit = true;
+            }
+
+
+            if (!this._isMapperInit)
+            {
+                Mapper.Initialize(cfg =>
+                {
+                    MapperConfig.RegisterMappers(cfg);
+                });
+
+                this._isMapperInit = true;
             }
         }
 

@@ -9,6 +9,8 @@ namespace BudGet.Logic
         public static void RegisterDependencies(FreshTinyIoCContainer container)
         {
             container.Register<IAccountService, AccountService>();
+            container.Register<ICategoryService, CategoryService>();
+            container.Register<INoteService, NoteService>();
             container.Register<IUow, Uow>();
         }
     }

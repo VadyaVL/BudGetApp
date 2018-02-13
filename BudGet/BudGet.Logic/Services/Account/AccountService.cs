@@ -1,11 +1,17 @@
-﻿using Plugin.Settings;
+﻿using BudGet.Dal;
+using Plugin.Settings;
 using Plugin.Settings.Abstractions;
 
 namespace BudGet.Logic.Services
 {
-    public class AccountService : IAccountService
+    public class AccountService : BasicService, IAccountService
     {
         private static ISettings AppSettings => CrossSettings.Current;
+
+        public AccountService(IUow unit) : base(unit)
+        {
+
+        }
 
         public bool IsAuthenticated
         {

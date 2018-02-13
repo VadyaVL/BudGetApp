@@ -15,6 +15,10 @@ namespace BudGet.ViewModels
 
         protected IAccountService AccountService { get; set; }
 
+        protected ICategoryService CategoryService { get; set; }
+
+        protected INoteService NoteService { get; set; }
+
         #endregion
 
         #region Validation
