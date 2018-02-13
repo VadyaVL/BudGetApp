@@ -7,5 +7,9 @@ BudGet/BudGet.Logic/obj/
 BudGet/BudGet.Logic/bin/
 BudGet/BudGet.Core/obj/
 BudGet/BudGet.Core/bin/
+BudGet/BudGet.Model/obj/
+BudGet/BudGet.Model/bin/
+BudGet/BudGet.Dal/obj/
+BudGet/BudGet.Dal/bin/
 BudGet/BudGet/bin/
 BudGet/BudGet/obj/

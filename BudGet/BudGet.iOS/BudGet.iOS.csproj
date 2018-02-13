@@ -90,6 +90,7 @@
   <ItemGroup>
     <Compile Include="Main.cs" />
     <Compile Include="AppDelegate.cs" />
+    <Compile Include="Services\SQLiteIOS.cs" />
     <Compile Include="Utils\Notificator.cs" />
     <None Include="Entitlements.plist" />
     <None Include="Info.plist" />
@@ -135,13 +136,20 @@
     <PackageReference Include="SkiaSharp.Views.Forms">
       <Version>1.59.3</Version>
     </PackageReference>
+    <PackageReference Include="sqlite-net-pcl">
+      <Version>1.4.118</Version>
+    </PackageReference>
     <PackageReference Include="Xam.Plugins.Settings">
       <Version>3.1.1</Version>
     </PackageReference>
-    <PackageReference Include="Xamarin.Forms" Version="2.5.0.121934" />
+    <PackageReference Include="Xamarin.Forms" Version="2.5.0.122203" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <ItemGroup>
+    <ProjectReference Include="..\BudGet.Core\BudGet.Core.csproj">
+      <Project>{30A8AF3F-0B2A-4241-8A21-26F9F0E00FA5}</Project>
+      <Name>BudGet.Core</Name>
+    </ProjectReference>
     <ProjectReference Include="..\BudGet\BudGet.csproj">
       <Project>{4297C1CC-493D-4528-8701-96743F35B814}</Project>
       <Name>BudGet</Name>

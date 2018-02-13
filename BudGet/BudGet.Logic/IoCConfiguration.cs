@@ -1,4 +1,5 @@
-﻿using BudGet.Logic.Services;
+﻿using BudGet.Dal;
+using BudGet.Logic.Services;
 using FreshTinyIoC;
 
 namespace BudGet.Logic
@@ -8,6 +9,7 @@ namespace BudGet.Logic
         public static void RegisterDependencies(FreshTinyIoCContainer container)
         {
             container.Register<IAccountService, AccountService>();
+            container.Register<IUow, Uow>();
         }
     }
 }
