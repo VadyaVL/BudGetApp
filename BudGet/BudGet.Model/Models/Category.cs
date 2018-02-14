@@ -1,4 +1,5 @@
 ﻿using SQLite;
+using SQLiteNetExtensions.Attributes;
 using System.Collections.Generic;
 
 namespace BudGet.Model.Models
@@ -17,10 +18,16 @@ namespace BudGet.Model.Models
 
         public byte Coefficient { get; set; }
 
-        //public Category ParentCategory { get; set; }
+        [ForeignKey(typeof(Category))]
+        public int ParentCategoryId { get; set; }
 
-        //public ICollection<Category> ChildCategories { get; set; }
+        [ManyToOne]
+        public Category ParentCategory { get; set; }
 
-        //public ICollection<Note> Notes { get; set; }
+        [OneToMany]
+        public ICollection<Category> ChildCategories { get; set; }
+
+        [OneToMany]
+        public ICollection<Note> Notes { get; set; }
     }
 }

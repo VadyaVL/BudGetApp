@@ -1,4 +1,5 @@
 ﻿using SQLite;
+using SQLiteNetExtensions.Attributes;
 using System;
 
 namespace BudGet.Model.Models
@@ -15,7 +16,11 @@ namespace BudGet.Model.Models
         public string Description { get; set; }
 
         public DateTime DateTime { get; set; }
-        
-        //public Category Category { get; set; }
+
+        [ForeignKey(typeof(Category))]
+        public int CategoryId { get; set; }
+
+        [ManyToOne]
+        public Category Category { get; set; }
     }
 }
