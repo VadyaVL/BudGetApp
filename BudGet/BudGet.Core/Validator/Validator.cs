@@ -7,7 +7,7 @@ using System.Globalization;
 using System.Linq;
 using System.Reflection;
 
-namespace BadGet.Core.Validation2
+namespace BadGet.Core.Validation
 {
     public class Validator : INotifyPropertyChanged
     {
@@ -16,10 +16,7 @@ namespace BadGet.Core.Validation2
 
         public static readonly ReadOnlyCollection<string> EmptyErrorsCollection = new ReadOnlyCollection<string>(new List<string>());
 
-        public IDictionary<string, ReadOnlyCollection<string>> Errors
-        {
-            get { return errors; }
-        }
+        public IDictionary<string, ReadOnlyCollection<string>> Errors => errors;
 
         public event PropertyChangedEventHandler PropertyChanged;
         public event EventHandler<DataErrorsChangedEventArgs> ErrorsChanged;

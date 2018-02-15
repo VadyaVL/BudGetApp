@@ -1,4 +1,4 @@
-﻿using BadGet.Core.Validation2;
+﻿using BadGet.Core.Validation;
 using BudGet.Logic.Services;
 using FreshMvvm;
 using System;
