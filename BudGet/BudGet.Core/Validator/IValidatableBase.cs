@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 
-namespace BadGet.Core.Validation2
+namespace BadGet.Core.Validation
 {
     public interface IValidatableBase
     {

@@ -5,7 +5,7 @@ using System.Runtime.CompilerServices;
 using System.ComponentModel;
 using Xamarin.Forms;
 
-namespace BadGet.Core.Validation2
+namespace BadGet.Core.Validation
 {
     public class ValidatableBase : BindableObject, IValidatableBase
     {
