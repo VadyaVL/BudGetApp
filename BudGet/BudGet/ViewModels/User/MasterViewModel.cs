@@ -13,17 +13,17 @@ namespace BudGet.ViewModels
     {
         #region Fields
 
-        private ObservableCollection<MenuViewModel> _collectionMenu = new ObservableCollection<MenuViewModel>();
+        private ObservableCollection<MenuItemViewModel> _collectionMenu = new ObservableCollection<MenuItemViewModel>();
 
-        private MenuViewModel _selected;
+        private MenuItemViewModel _selected;
 
         #endregion
 
         #region Props
 
-        public ObservableCollection<MenuViewModel> CollectionMenu => this._collectionMenu;
+        public ObservableCollection<MenuItemViewModel> CollectionMenu => this._collectionMenu;
 
-        public MenuViewModel Selected
+        public MenuItemViewModel Selected
         {
             get => this._selected;
             set
@@ -74,10 +74,10 @@ namespace BudGet.ViewModels
 
         private void CreateHamburgerMenu()
         {
-            var pageCategory = new MenuViewModel() { Title = "Categories", Icon = ImageSource.FromResource("BudGet.Images.Menu.Categories.png"), TargetType = typeof(CategoryListViewModel) };
-            var pageSetting = new MenuViewModel() { Title = "Setting", Icon = ImageSource.FromResource("BudGet.Images.Menu.Setting.png"), TargetType = typeof(SettingViewModel) };
-            var pageDeveloper = new MenuViewModel() { Title = "Developer", Icon = ImageSource.FromResource("BudGet.Images.Menu.Developer.png"), TargetType = typeof(DeveloperViewModel) };
-            var optionExit = new MenuViewModel() { Title = "Exit", Icon = ImageSource.FromResource("BudGet.Images.Menu.Logout.png"), TargetType = typeof(SignInViewModel) };
+            var pageCategory = new MenuItemViewModel() { Title = "Categories", Icon = ImageSource.FromResource("BudGet.Images.Menu.Categories.png"), TargetType = typeof(CategoryListViewModel) };
+            var pageSetting = new MenuItemViewModel() { Title = "Setting", Icon = ImageSource.FromResource("BudGet.Images.Menu.Setting.png"), TargetType = typeof(SettingViewModel) };
+            var pageDeveloper = new MenuItemViewModel() { Title = "Developer", Icon = ImageSource.FromResource("BudGet.Images.Menu.Developer.png"), TargetType = typeof(DeveloperViewModel) };
+            var optionExit = new MenuItemViewModel() { Title = "Exit", Icon = ImageSource.FromResource("BudGet.Images.Menu.Logout.png"), TargetType = typeof(SignInViewModel) };
 
             this.CollectionMenu.Add(pageCategory);
             this.CollectionMenu.Add(pageSetting);
@@ -87,7 +87,7 @@ namespace BudGet.ViewModels
             this.Selected = pageSetting;
         }
 
-        private void OnItemTap()
+        private async void OnItemTap()
         {
             // Show dialog to exit
 
@@ -97,12 +97,10 @@ namespace BudGet.ViewModels
 
                 return;
             }
-            else if (App.Current.MainPage is MasterDetailPage masterDetail)
+            else
             {
-                var initPage = FreshPageModelResolver.ResolvePageModel(this.Selected.TargetType, null);
-                var detailPageArea = new FreshNavigationContainer(initPage, "DetailPageArea");
-                masterDetail.Detail = detailPageArea;
-                masterDetail.IsPresented = false;
+                // Use core methods from detail
+                // await this.CoreMethods.PushPageModel(this.Selected.TargetType);
             }
         }
 

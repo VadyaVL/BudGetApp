@@ -1,12 +1,9 @@
 ﻿using BudGet.Core;
 using BudGet.Logic.Models;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace BudGet.ViewModels
 {
-    public class UserViewModel : BasicViewModel
+    public class DetailViewModel : BasicViewModel
     {
         #region Fields
 
@@ -26,7 +23,7 @@ namespace BudGet.ViewModels
 
         #region Constructors
 
-        public UserViewModel()
+        public DetailViewModel()
         {
             this.Collection.Add(new CategoryModel { Name = "InCome" });
             this.Collection.Add(new CategoryModel { Name = "OutCome" });

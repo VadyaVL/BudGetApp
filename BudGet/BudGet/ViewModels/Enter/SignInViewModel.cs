@@ -61,7 +61,7 @@ namespace BudGet.ViewModels
                 menuListPage.Title = "Menu";
                 masterDetailsMultiple.Master = menuListPage;
 
-                var initPage = FreshPageModelResolver.ResolvePageModel<SettingViewModel>();
+                var initPage = FreshPageModelResolver.ResolvePageModel<DetailViewModel>();
                 var detailPageArea = new FreshNavigationContainer(initPage, "DetailPageArea");
                 masterDetailsMultiple.Detail = detailPageArea;
 
