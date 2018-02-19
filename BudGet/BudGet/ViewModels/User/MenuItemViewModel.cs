@@ -3,7 +3,7 @@ using Xamarin.Forms;
 
 namespace BudGet.ViewModels
 {
-    public class MenuViewModel : BasicViewModel
+    public class MenuItemViewModel : BasicViewModel
     {
         public string Title { get; set; }
 

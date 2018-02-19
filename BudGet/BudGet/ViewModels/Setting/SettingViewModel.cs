@@ -8,17 +8,17 @@ namespace BudGet.ViewModels
     {
         #region Fields
 
-        private ObservableCollection<MenuViewModel> _collection = new ObservableCollection<MenuViewModel>();
+        private ObservableCollection<MenuItemViewModel> _collection = new ObservableCollection<MenuItemViewModel>();
 
-        private MenuViewModel _selected;
+        private MenuItemViewModel _selected;
 
         #endregion
 
         #region Props
 
-        public ObservableCollection<MenuViewModel> Collection => this._collection;
+        public ObservableCollection<MenuItemViewModel> Collection => this._collection;
 
-        public MenuViewModel Selected
+        public MenuItemViewModel Selected
         {
             get => this._selected;
             set
@@ -54,7 +54,7 @@ namespace BudGet.ViewModels
             this.ItemTapCommand = new Command(this.OnItemTap);
 
             this.Collection.Add(
-                new MenuViewModel
+                new MenuItemViewModel
                 {
                     Icon = ImageSource.FromResource("BudGet.Images.Lock.png"),
                     Title = Resource.TextChangePassword,
